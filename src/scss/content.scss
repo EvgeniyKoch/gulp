@@ -1,0 +1,25 @@
+html {
+    font-size: 16px;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.42;
+    position: relative;
+    -webkit-font-snoothing: antialiased;
+    -moz-osx-font-snoothing: grayscale;
+  }
+  .wrapper {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: red;
+  }

@@ -1,0 +1,28 @@
+{
+  "name": "evg-koch",
+  "version": "1.0.0",
+  "description": "Демо автоматизации с gulp 4",
+  "author": "Evgeniy Kochetov",
+  "license": "ISC",
+  "scripts": {
+    "start": "gulp"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-cleancss": "^0.2.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-unit": "^1.2.2",
+    "gulp-fontgen": "^0.2.5",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-svgo": "^1.2.5"
+  },
+  "dependencies": {}
+}
