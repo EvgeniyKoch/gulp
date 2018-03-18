@@ -1,1 +1,10 @@
+// tecnologies
+@import 'technologies/mixins.scss';
+@import 'technologies/variables.scss';
+@import 'technologies/normalize.scss';
+@import 'technologies/reset.scss';
+
+// content
+@import 'common/header.scss';
 @import './content.scss';
+@import 'common/footer.scss';

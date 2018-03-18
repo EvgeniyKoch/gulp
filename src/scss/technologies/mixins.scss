@@ -1,0 +1,64 @@
+//media queries
+@mixin tablets {
+      @media screen and(max-width:$screen-sm) {
+
+        @content;
+    }
+}
+@mixin phones {
+      @media screen and(max-width:$screen-xs) {
+
+    @content;
+    }
+}
+@mixin iphone5 {
+      @media screen and(max-width:$screen-i5) {
+
+    @content;
+    }
+}
+@mixin netbook {
+        @media screen and(max-width:$screen-md) {
+    @content;
+    }
+}
+  @mixin desktop {
+        @media screen and(max-width:$screen-lg) {
+    @content;
+    }
+}
+  @mixin smartTV {
+          @media screen and(max-width:$screen-xl) {
+    @content;
+    }
+}
+
+//fonts
+// @mixin title{
+
+// }
+// @mixin subtitle{
+
+// }
+
+// @mixin fontsregular{
+
+// }
+// @mixin fonts{
+
+// }
+// @mixin robotobold{
+
+// }
+
+@mixin centerPosition{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+@mixin centerFlex{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
