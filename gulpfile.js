@@ -7,10 +7,14 @@ const gulp = require('gulp');
 // const webpackConfig = require('./webpack.config.js');
 const pug  = require('gulp-pug');
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
 const sassGlob = require('gulp-sass-glob');
 const groupMediaQueries = require('gulp-group-css-media-queries');//ищет одинаковые медиа условия и группирует их
+const cleanCSS = require('gulp-cleancss');
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const sourcemaps = require('gulp-sourcemaps');
 const cssunit = require('gulp-css-unit');
 const replace = require('gulp-replace');
 const del = require('del');
@@ -50,11 +54,14 @@ function templates() {
 function styles() {
   return gulp.src(paths.src + 'scss/style.scss')
     .pipe(plumber())// что бы если будет ошибка компиляции то процесс слежения не остонавливался
+    .pipe(sourcemaps.init())// обращение к карте кода
     .pipe(sassGlob())
     .pipe(sass()) // { outputStyle: 'compressed' }
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(cssunit({type: 'px-to-rem',rootSize: 16}))
     .pipe(groupMediaQueries())//ищет одинаковые медиа условия и группирует их
+    .pipe(cleanCSS())//минификация
+    .pipe(sourcemaps.write('/'))// запись карты кода
     .pipe(gulp.dest(paths.build + 'css/'))
 }
 
@@ -74,7 +81,13 @@ function fonts() {
 function scripts() {
     return gulp.src(paths.src + 'js/main.js')
         .pipe(plumber())
-        .pipe(concat('bundle.js'))
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+          presets: ['env']
+      }))
+      .pipe(uglify())
+      .pipe(concat('bundle.js'))
+      .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.build + 'js/'))
 }
 
